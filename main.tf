@@ -330,10 +330,4 @@ module "public_gateway" {
     aws_subnet.public_az4.id
   ]
   vpc_id = aws_vpc.wts.id
-  availability_zones = [
-    "us-east-1c", // use1-az1
-    "us-east-1d", // use1-az2
-    "us-east-1e", // use1-az3
-    "us-east-1a"  // use1-az4
-  ]
 }

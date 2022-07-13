@@ -28,9 +28,9 @@ resource "aws_lb_listener" "public_gateway" {
 }
 
 resource "aws_launch_configuration" "config" {
-  associate_public_ip_address = true
   instance_type = "t2.micro"
   image_id = "ami-0cff7528ff583bf9a"
+  
 
   lifecycle {
     create_before_destroy = true
@@ -38,11 +38,11 @@ resource "aws_launch_configuration" "config" {
 }
 
 resource "aws_autoscaling_group" "public_gateway" {
-  availability_zones = var.availability_zones
   min_size = 1
   max_size = 2
   launch_configuration = aws_launch_configuration.config.name
   target_group_arns = [ aws_lb_target_group.public_gateway.arn ]
+  vpc_zone_identifier = var.subnet_ids
 
   lifecycle {
     create_before_destroy = true
