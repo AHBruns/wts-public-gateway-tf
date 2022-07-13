@@ -1,5 +1,9 @@
+provider "aws" {
+  region = "us-east-1"
+}
+
 resource "aws_instance" "test" {
-  ami = "ami-02d1e544b84bf7502"
+  ami = "ami-0cff7528ff583bf9a"
   instance_type = "t2.micro"
   subnet_id = var.subnet_id
 
