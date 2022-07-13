@@ -83,21 +83,43 @@ resource "aws_subnet" "private_az4" {
   cidr_block = "10.0.96.0/19"
 }
 
+# nat gateway eips
+
+resource "aws_eip" "nat_gateway_az1" {
+  vpc = true
+}
+
+resource "aws_eip" "nat_gateway_az2" {
+  vpc = true
+}
+
+resource "aws_eip" "nat_gateway_az3" {
+  vpc = true
+}
+
+resource "aws_eip" "nat_gateway_az4" {
+  vpc = true
+}
+
 # nat gateways
 
 resource "aws_nat_gateway" "az1" {
+  allocation_id = aws_eip.nat_gateway_az1.id
   subnet_id = aws_subnet.public_az1.id
 }
 
 resource "aws_nat_gateway" "az2" {
+  allocation_id = aws_eip.nat_gateway_az2.id
   subnet_id = aws_subnet.public_az2.id
 }
 
 resource "aws_nat_gateway" "az3" {
+  allocation_id = aws_eip.nat_gateway_az3.id
   subnet_id = aws_subnet.public_az3.id
 }
 
 resource "aws_nat_gateway" "az4" {
+  allocation_id = aws_eip.nat_gateway_az4.id
   subnet_id = aws_subnet.public_az4.id
 }
 
