@@ -131,75 +131,75 @@ resource "aws_subnet" "private_az4" {
 
 # nat gateway eips
 
-resource "aws_eip" "nat_gateway_az1" {
-  vpc = true
+# resource "aws_eip" "nat_gateway_az1" {
+#   vpc = true
 
-  tags = {
-    Name = "WTS"
-  }
-}
+#   tags = {
+#     Name = "WTS"
+#   }
+# }
 
-resource "aws_eip" "nat_gateway_az2" {
-  vpc = true
+# resource "aws_eip" "nat_gateway_az2" {
+#   vpc = true
 
-  tags = {
-    Name = "WTS"
-  }
-}
+#   tags = {
+#     Name = "WTS"
+#   }
+# }
 
-resource "aws_eip" "nat_gateway_az3" {
-  vpc = true
+# resource "aws_eip" "nat_gateway_az3" {
+#   vpc = true
 
-  tags = {
-    Name = "WTS"
-  }
-}
+#   tags = {
+#     Name = "WTS"
+#   }
+# }
 
-resource "aws_eip" "nat_gateway_az4" {
-  vpc = true
+# resource "aws_eip" "nat_gateway_az4" {
+#   vpc = true
 
-  tags = {
-    Name = "WTS"
-  }
-}
+#   tags = {
+#     Name = "WTS"
+#   }
+# }
 
 # nat gateways
 
-resource "aws_nat_gateway" "az1" {
-  allocation_id = aws_eip.nat_gateway_az1.id
-  subnet_id = aws_subnet.public_az1.id
+# resource "aws_nat_gateway" "az1" {
+#   allocation_id = aws_eip.nat_gateway_az1.id
+#   subnet_id = aws_subnet.public_az1.id
 
-  tags = {
-    Name = "WTS"
-  }
-}
+#   tags = {
+#     Name = "WTS"
+#   }
+# }
 
-resource "aws_nat_gateway" "az2" {
-  allocation_id = aws_eip.nat_gateway_az2.id
-  subnet_id = aws_subnet.public_az2.id
+# resource "aws_nat_gateway" "az2" {
+#   allocation_id = aws_eip.nat_gateway_az2.id
+#   subnet_id = aws_subnet.public_az2.id
 
-  tags = {
-    Name = "WTS"
-  }
-}
+#   tags = {
+#     Name = "WTS"
+#   }
+# }
 
-resource "aws_nat_gateway" "az3" {
-  allocation_id = aws_eip.nat_gateway_az3.id
-  subnet_id = aws_subnet.public_az3.id
+# resource "aws_nat_gateway" "az3" {
+#   allocation_id = aws_eip.nat_gateway_az3.id
+#   subnet_id = aws_subnet.public_az3.id
 
-  tags = {
-    Name = "WTS"
-  }
-}
+#   tags = {
+#     Name = "WTS"
+#   }
+# }
 
-resource "aws_nat_gateway" "az4" {
-  allocation_id = aws_eip.nat_gateway_az4.id
-  subnet_id = aws_subnet.public_az4.id
+# resource "aws_nat_gateway" "az4" {
+#   allocation_id = aws_eip.nat_gateway_az4.id
+#   subnet_id = aws_subnet.public_az4.id
 
-  tags = {
-    Name = "WTS"
-  }
-}
+#   tags = {
+#     Name = "WTS"
+#   }
+# }
 
 # public route tables
 
@@ -218,57 +218,57 @@ resource "aws_route_table" "public" {
 
 # private route tables
 
-resource "aws_route_table" "private_az1" {
-  vpc_id = aws_vpc.wts.id
+# resource "aws_route_table" "private_az1" {
+#   vpc_id = aws_vpc.wts.id
 
-  route {
-    cidr_block = "0.0.0.0/0"
-    nat_gateway_id = aws_nat_gateway.az1.id
-  }
+#   route {
+#     cidr_block = "0.0.0.0/0"
+#     nat_gateway_id = aws_nat_gateway.az1.id
+#   }
 
-  tags = {
-    Name = "WTS"
-  }
-}
+#   tags = {
+#     Name = "WTS"
+#   }
+# }
 
-resource "aws_route_table" "private_az2" {
-  vpc_id = aws_vpc.wts.id
+# resource "aws_route_table" "private_az2" {
+#   vpc_id = aws_vpc.wts.id
 
-  route {
-    cidr_block = "0.0.0.0/0"
-    nat_gateway_id = aws_nat_gateway.az2.id
-  }
+#   route {
+#     cidr_block = "0.0.0.0/0"
+#     nat_gateway_id = aws_nat_gateway.az2.id
+#   }
 
-  tags = {
-    Name = "WTS"
-  }
-}
+#   tags = {
+#     Name = "WTS"
+#   }
+# }
 
-resource "aws_route_table" "private_az3" {
-  vpc_id = aws_vpc.wts.id
+# resource "aws_route_table" "private_az3" {
+#   vpc_id = aws_vpc.wts.id
 
-  route {
-    cidr_block = "0.0.0.0/0"
-    nat_gateway_id = aws_nat_gateway.az3.id
-  }
+#   route {
+#     cidr_block = "0.0.0.0/0"
+#     nat_gateway_id = aws_nat_gateway.az3.id
+#   }
 
-  tags = {
-    Name = "WTS"
-  }
-}
+#   tags = {
+#     Name = "WTS"
+#   }
+# }
 
-resource "aws_route_table" "private_az4" {
-  vpc_id = aws_vpc.wts.id
+# resource "aws_route_table" "private_az4" {
+#   vpc_id = aws_vpc.wts.id
 
-  route {
-    cidr_block = "0.0.0.0/0"
-    nat_gateway_id = aws_nat_gateway.az4.id
-  }
+#   route {
+#     cidr_block = "0.0.0.0/0"
+#     nat_gateway_id = aws_nat_gateway.az4.id
+#   }
 
-  tags = {
-    Name = "WTS"
-  }
-}
+#   tags = {
+#     Name = "WTS"
+#   }
+# }
 
 # public route table associations
 
@@ -294,25 +294,25 @@ resource "aws_route_table_association" "public_az4" {
 
 # private route table associations
 
-resource "aws_route_table_association" "private_az1" {
-  route_table_id = aws_route_table.private_az1.id
-  subnet_id = aws_subnet.private_az1.id
-}
+# resource "aws_route_table_association" "private_az1" {
+#   route_table_id = aws_route_table.private_az1.id
+#   subnet_id = aws_subnet.private_az1.id
+# }
 
-resource "aws_route_table_association" "private_az2" {
-  route_table_id = aws_route_table.private_az2.id
-  subnet_id = aws_subnet.private_az2.id
-}
+# resource "aws_route_table_association" "private_az2" {
+#   route_table_id = aws_route_table.private_az2.id
+#   subnet_id = aws_subnet.private_az2.id
+# }
 
-resource "aws_route_table_association" "private_az3" {
-  route_table_id = aws_route_table.private_az3.id
-  subnet_id = aws_subnet.private_az3.id
-}
+# resource "aws_route_table_association" "private_az3" {
+#   route_table_id = aws_route_table.private_az3.id
+#   subnet_id = aws_subnet.private_az3.id
+# }
 
-resource "aws_route_table_association" "private_az4" {
-  route_table_id = aws_route_table.private_az4.id
-  subnet_id = aws_subnet.private_az4.id
-}
+# resource "aws_route_table_association" "private_az4" {
+#   route_table_id = aws_route_table.private_az4.id
+#   subnet_id = aws_subnet.private_az4.id
+# }
 
 # services
 
