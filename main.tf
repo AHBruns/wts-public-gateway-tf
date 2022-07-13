@@ -147,7 +147,7 @@ resource "aws_route_table" "private_az1" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_nat_gateway.az1.id
+    nat_gateway_id = aws_nat_gateway.az1.id
   }
 }
 
@@ -156,7 +156,7 @@ resource "aws_route_table" "private_az2" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_nat_gateway.az2.id
+    nat_gateway_id = aws_nat_gateway.az2.id
   }
 }
 
@@ -165,7 +165,7 @@ resource "aws_route_table" "private_az3" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_nat_gateway.az3.id
+    nat_gateway_id = aws_nat_gateway.az3.id
   }
 }
 
@@ -174,7 +174,7 @@ resource "aws_route_table" "private_az4" {
 
   route {
     cidr_block = "0.0.0.0/0"
-    gateway_id = aws_nat_gateway.az4.id
+    nat_gateway_id = aws_nat_gateway.az4.id
   }
 }
 
