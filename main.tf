@@ -37,24 +37,28 @@ resource "aws_subnet" "public_az1" {
   vpc_id = aws_vpc.wts.id
   availability_zone_id = "use1-az1"
   cidr_block = "10.0.128.0/20"
+  map_public_ip_on_launch = true
 }
 
 resource "aws_subnet" "public_az2" {
   vpc_id = aws_vpc.wts.id
   availability_zone_id = "use1-az2"
   cidr_block = "10.0.144.0/20"
+  map_public_ip_on_launch = true
 }
 
 resource "aws_subnet" "public_az3" {
   vpc_id = aws_vpc.wts.id
   availability_zone_id = "use1-az3"
   cidr_block = "10.0.160.0/20"
+  map_public_ip_on_launch = true
 }
 
 resource "aws_subnet" "public_az4" {
   vpc_id = aws_vpc.wts.id
   availability_zone_id = "use1-az4"
   cidr_block = "10.0.176.0/20"
+  map_public_ip_on_launch = true
 }
 
 # private subnets
