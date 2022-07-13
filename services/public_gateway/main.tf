@@ -11,7 +11,7 @@ resource "aws_lb" "public_gateway" {
 }
 
 resource "aws_lb_target_group" "public_gateway" {
-  target_type = "alb"
+  target_type = "instance"
   port = 80
   protocol = "HTTP"
   vpc_id = var.vpc_id
